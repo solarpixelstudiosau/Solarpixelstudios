@@ -1,148 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solar Pixel Studios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Pixel Studios is now part of Komodroid</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #050805;
+      --panel: #101810;
+      --panel-2: #0a120a;
+      --green: #00ff1a;
+      --green-soft: rgba(0, 255, 26, 0.18);
+      --text: #ffffff;
+      --muted: #c7d4c7;
+      --border: rgba(0, 255, 26, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background-color: #111;
-      color: #fff;
+      background:
+        radial-gradient(circle at top, rgba(0, 255, 26, 0.08), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
     }
+
     header {
-      background-color: #222;
-      padding: 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
-      box-shadow: 0 0 10px #0f0;
-      position: relative;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.72);
     }
+
     header img.logo {
-      max-height: 80px;
+      max-height: 64px;
       display: block;
-      margin: 0 auto 10px;
+      margin: 0 auto 0.75rem;
+      image-rendering: pixelated;
     }
+
     header h1 {
       font-family: 'Orbitron', sans-serif;
-      color: #0f0;
+      color: var(--green);
       margin: 0;
+      font-size: clamp(1.35rem, 4vw, 2.2rem);
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 14px rgba(0, 255, 26, 0.25);
     }
+
     nav {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 0.9rem;
     }
+
     nav a {
-      color: #0f0;
-      margin: 0 15px;
+      color: var(--green);
+      margin: 0 0.7rem;
       text-decoration: none;
-      cursor: pointer;
+      font-weight: 700;
     }
-    .content {
-      max-width: 1000px;
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      width: min(1000px, calc(100% - 2rem));
       margin: 2rem auto;
-      padding: 1rem;
     }
+
+    .hero {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      background: linear-gradient(180deg, rgba(16, 24, 16, 0.96), rgba(8, 12, 8, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 0 28px rgba(0, 255, 26, 0.08);
+      text-align: center;
+    }
+
     .game-logo {
       display: block;
+      width: min(760px, 100%);
       margin: 0 auto;
-      max-width: 300px;
     }
-    .game-embed {
-      width: 100%;
-      height: 600px;
-      border: none;
-      margin-top: 2rem;
+
+    .eyebrow {
+      margin: 0;
+      color: var(--green);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
     }
+
+    .hero h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.7rem, 5vw, 3.5rem);
+      line-height: 1.08;
+      margin: 0;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: clamp(1rem, 2.4vw, 1.18rem);
+      line-height: 1.65;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 0.4rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 0.85rem 1.15rem;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+
+    .button.primary {
+      background: var(--green);
+      color: #001500;
+      box-shadow: 0 0 18px rgba(0, 255, 26, 0.22);
+    }
+
+    .button.secondary {
+      color: var(--green);
+      border: 1px solid var(--border);
+      background: rgba(0, 255, 26, 0.06);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .notice {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border-radius: 16px;
+      background: var(--green-soft);
+      border: 1px solid var(--border);
+      color: #eaffea;
+    }
+
+    .notice strong {
+      color: var(--green);
+    }
+
+    .small-page {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      border-radius: 18px;
+      background: var(--panel-2);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .small-page h3 {
+      margin: 0 0 0.55rem;
+      color: var(--green);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .small-page p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     footer {
       background-color: #000;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #0f0;
-    }
-    /* Popup Styles */
-    #aboutPopup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #222;
-      padding: 2rem;
-      border: 2px solid #0f0;
-      z-index: 999;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 0 20px #0f0;
-    }
-    #aboutPopup h2 {
-      margin-top: 0;
-      color: #0f0;
-    }
-    #aboutPopup button {
-      background: #0f0;
-      color: #000;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 998;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Solar Pixel Studios Logo" class="logo">
+    <img src="logo.png" alt="Solar Pixel Studios Logo" class="logo" />
     <h1>Solar Pixel Studios</h1>
     <nav>
-      <a onclick="openAbout()">About</a>
-      <a href="#games">Games</a>
+      <a href="https://komodroid.co.nz/zombocalpyse">Play</a>
+      <a href="#itch-notice">Itch.io Notice</a>
       <a href="mailto:solarpixelstudios69@gmail.com">Contact</a>
     </nav>
   </header>
 
-  <div class="content">
-    <section id="games">
-      <h2>Zombocalypse</h2>
-      <img src="apoloypselogo.png" alt="Apocalypse Logo" class="game-logo">
-      <p>Zombocalypse is a pixel-art zombie wave shooter where you must survive endless hordes and use powerups to stay alive. Play it now below or on <a href="https://yourgame.itch.io/apocalypse" target="_blank">Itch.io</a>!</p>
-      <!-- Replace the src below with your real Itch.io embed URL -->
-      <iframe src="https://itch.io/embed/3576329" width="552" height="167" frameborder="0"><a href="https://solar-pixel-studios.itch.io/zombocalypse">Zombocalypse by Solar Pixel Studios</a></iframe>    </section>
-  </div>
+  <main>
+    <section class="hero">
+      <img src="apoloypselogo.png" alt="Zombocalypse Logo" class="game-logo" />
 
-  <!-- Popup -->
-  <div id="overlay" onclick="closeAbout()"></div>
-  <div id="aboutPopup">
-    <h2>About Solar Pixel Studios</h2>
-    <p>We want to revive retro games into a modern society. A team based in Geelong, Victoria, Australia — with around 3 people working to create brand new retro experiences for the world to enjoy.</p>
-    <button onclick="closeAbout()">Close</button>
-  </div>
+      <p class="eyebrow">Important Update</p>
+      <h2>Solar Pixel Studios is now part of Komodroid.</h2>
+
+      <p>
+        To play Zombocalypse, please visit
+        <strong>komodroid.co.nz/zombocalpyse</strong>.
+      </p>
+
+      <div class="button-row">
+        <a class="button primary" href="https://komodroid.co.nz/zombocalpyse">Play on Komodroid</a>
+        <!-- Replace the # below with the Learn More link when ready. -->
+        <a class="button secondary" href="#">Learn More</a>
+      </div>
+
+      <div class="notice" id="itch-notice">
+        <strong>Itch.io Notice:</strong>
+        Zombocalypse will no longer be updated on itch.io. Future updates, fixes, and new versions will be released through Komodroid.
+      </div>
+    </section>
+
+    <section class="small-page">
+      <h3>Where to play now</h3>
+      <p>
+        The active version of the game has moved to Komodroid. Please use the button above or visit the Komodroid page directly to continue playing.
+      </p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Solar Pixel Studios. All rights reserved.
+    &copy; 2025 Solar Pixel Studios. Now part of Komodroid.
   </footer>
-
-  <script>
-    function openAbout() {
-      document.getElementById('aboutPopup').style.display = 'block';
-      document.getElementById('overlay').style.display = 'block';
-    }
-    function closeAbout() {
-      document.getElementById('aboutPopup').style.display = 'none';
-      document.getElementById('overlay').style.display = 'none';
-    }
-  </script>
 </body>
 </html>
